@@ -1,7 +1,7 @@
 {
   "name": "qrtrac",
   "version": "1.0.0",
-  "description": "Create, edit, repoint dynamic QR codes, link-in-bio pages, and track real-time scan analytics with QRTrac.",
+  "description": "Create, edit, repoint dynamic QR codes, link-in-bio pages, and track real-time scan analytics with QRTRAC.",
   "author": {
     "name": "QRTRAC",
     "email": "support@qrtrac.com",
@@ -10,6 +10,8 @@
   "homepage": "https://qrtrac.com",
   "repository": "https://github.com/qrtrac2022/claude-plugin",
   "license": "MIT",
+  "icon": "./assets/icon.png",
+  "privacyPolicyUrl": "https://qrtrac.com/privacy-policy/",
   "keywords": [
     "qr-code",
     "dynamic-qr",

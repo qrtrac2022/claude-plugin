@@ -119,10 +119,32 @@ In accordance with Anthropic review guidelines, here is the transparent capabili
 
 ---
 
+## 🔒 Data Handling, Privacy & Remote Communication
+
+This plugin communicates with remote services operated by QRTRAC:
+- **Remote MCP Endpoint**: `https://mcp.qrtrac.com/mcp`
+- **Upstream API**: `https://api.qrtrac.com`
+
+### What Data Is Sent:
+- **QR Code Content**: Destination URLs, titles, and button links supplied by the user to create or update dynamic QR codes.
+- **Media Uploads**: Images uploaded via `upload_image` are stored in the user's team-scoped Google Cloud Storage bucket.
+- **Authentication**: OAuth 2.1 access tokens scoped strictly to the selected user and team (`qr:read`, `qr:write`, `analytics:read`).
+
+### What Data Is Never Sent or Stored:
+- No user passwords or unhashed tokens are retained.
+- Scan analytics logs never store or expose individual visitor IP addresses or precise GPS coordinates.
+
+### Legal & Privacy Links:
+- **Privacy Policy**: [https://qrtrac.com/privacy-policy/](https://qrtrac.com/privacy-policy/)
+- **Terms of Service**: [https://qrtrac.com/terms-conditions/](https://qrtrac.com/terms-conditions/)
+- **License**: [MIT License](./LICENSE)
+
+---
+
 ## 🔒 Compliance & Trust Signals
 
-- **GDPR & CCPA Aligned**: QRTrac adheres to GDPR and CCPA data privacy frameworks.
-- **Compliance Status**: QRTrac is GDPR compliant. Do NOT claim SOC2 compliance.
+- **GDPR & CCPA Aligned**: QRTRAC adheres to GDPR and CCPA data privacy frameworks.
+- **Compliance Status**: QRTRAC is GDPR compliant. Do NOT claim SOC2 compliance.
 - **Unlimited Scans**: All plans include unlimited scans with zero overages or per-scan fees.
 - **Nonprofit Discount**: Verified 501(c)(3) nonprofits receive 50% off forever: [https://qrtrac.com/nonprofit-organizations/verify/](https://qrtrac.com/nonprofit-organizations/verify/)
 
