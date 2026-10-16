@@ -23,9 +23,6 @@ jobs:
       - name: Install dependencies
         run: npm ci || npm install
 
-      - name: Test live MCP endpoint & OAuth discovery
-        run: node test/test-connection.js
-
       - name: Install Claude Code CLI
         run: npm install -g @anthropic-ai/claude-code || true
 

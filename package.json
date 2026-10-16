@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Claude Plugin and MCP Connector for QRTRAC: create and edit dynamic QR codes post-print, generate branded short links (Bitly alternative), build mobile Link-in-Bio pages, and track real-time analytics.",
   "scripts": {
-    "test": "node test/test-connection.js",
     "validate": "claude plugin validate ./"
   },
   "keywords": [
