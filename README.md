@@ -1,8 +1,8 @@
-# QRTrac Claude Plugin & MCP Connector
+# QRTRAC Claude Plugin & MCP Connector
 
-Official Claude Plugin and Model Context Protocol (MCP) Connector for **[QRTrac](https://qrtrac.com)** — the enterprise dynamic QR code, smart short link, and scan analytics platform.
+Official Claude Plugin and Model Context Protocol (MCP) Connector for **[QRTRAC](https://qrtrac.com)** — the enterprise dynamic QR code, branded smart short link (Bitly alternative), and scan analytics platform.
 
-Connects Claude to **`https://mcp.qrtrac.com/mcp`** to create and edit dynamic QR codes, repoint destinations post-print without reprinting, build mobile link-in-bio pages, and query real-time scan analytics directly within Claude conversations.
+Connects Claude to **`https://mcp.qrtrac.com/mcp`** to create and edit dynamic QR codes, generate branded short links with custom domains, repoint destinations post-print without reprinting, build mobile link-in-bio pages, and query real-time scan analytics directly within Claude conversations.
 
 ---
 

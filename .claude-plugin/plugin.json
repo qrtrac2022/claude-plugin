@@ -1,7 +1,7 @@
 {
   "name": "qrtrac",
   "version": "1.0.0",
-  "description": "Create, edit, repoint dynamic QR codes, link-in-bio pages, and track real-time scan analytics with QRTRAC.",
+  "description": "Create dynamic QR codes, branded short links (Bitly alternative), mobile Link-in-Bio pages, and track real-time analytics with QRTRAC.",
   "author": {
     "name": "QRTRAC",
     "email": "support@qrtrac.com",
