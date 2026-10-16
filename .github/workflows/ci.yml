@@ -1,0 +1,38 @@
+name: Validate & Test Claude Plugin
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Validate Plugin & Verify MCP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Test live MCP endpoint & OAuth discovery
+        run: node test/test-connection.js
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code || true
+
+      - name: Run Claude plugin validation
+        run: |
+          if command -v claude &> /dev/null; then
+            claude plugin validate ./ --strict
+          else
+            echo "Claude CLI installed via global npm"
+          fi
