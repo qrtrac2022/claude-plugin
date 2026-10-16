@@ -6,7 +6,7 @@
  * - MCP HTTP Endpoint handshake & WWW-Authenticate challenge
  */
 
-const BASE_URL = process.env.PUBLIC_URL || 'https://mcp.qrtrac.com';
+const BASE_URL = 'https://mcp.qrtrac.com';
 
 async function runTests() {
   console.log(`\n🔍 Testing QRTrac MCP Service at: ${BASE_URL}\n`);

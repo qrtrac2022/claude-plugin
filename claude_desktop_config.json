@@ -1,13 +1,8 @@
 {
   "mcpServers": {
     "qrtrac": {
-      "command": "node",
-      "args": [
-        "/Users/carmany/Documents/AI-Agents/qrtrac-claude-plugin/src/stdio-bridge.js"
-      ],
-      "env": {
-        "QRTRAC_MCP_URL": "https://mcp.qrtrac.com/mcp"
-      }
+      "type": "streamable-http",
+      "url": "https://mcp.qrtrac.com/mcp"
     }
   }
 }
