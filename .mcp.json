@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "qrtrac": {
+      "type": "streamable-http",
+      "url": "https://mcp.qrtrac.com/mcp"
+    }
+  }
+}
