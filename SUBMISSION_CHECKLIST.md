@@ -19,7 +19,12 @@ This checklist aligns with Anthropic's official submission requirements and the 
 
 - [x] **Zero hardcoded secrets**: No API keys, passwords, or test tokens in code, git history, or fixtures.
 - [x] **OAuth 2.1 & PKCE Compliance**: Remote MCP endpoint (`https://mcp.qrtrac.com/mcp`) implements RFC 8414 metadata discovery, RFC 7591 dynamic client registration (DCR), and S256 PKCE.
-- [x] **Destructive Actions Guarded**: `delete_qr_code` and `bulk_delete_qr_codes` carry `destructiveHint` and require confirmation.
+- [x] **Tool Annotations & Display Titles** (per [Review Criteria](https://claude.com/docs/connectors/building/review-criteria#provide-tool-annotations)):
+  - Every tool exports `annotations.title` with a human-readable name for directory listings.
+  - Safe inspection/read tools carry `readOnlyHint: true` (eligible for auto-execution without per-call confirmation).
+  - Data modification and deletion tools carry `destructiveHint: true` (prompts user confirmation).
+- [x] **Strict Parameter Typing**: All schema inputs have explicit JSON schema types (`backgroundColor: string`, `backgroundImageUrl: string`, `openLinksInNewTab: boolean`, `linkTextAlignment: string`).
+- [x] **Destructive Actions Guarded**: `delete_qr_code`, `bulk_delete_qr_codes`, and `delete_folder` carry `destructiveHint: true` and require confirmation.
 - [x] **Media Validation**: `upload_image` validates image magic bytes (PNG, JPEG, WebP, GIF only) and enforces a 5 MB limit. SVG is blocked.
 - [x] **Permissions Inventory**: Transparently documented in `README.md` for reviewers and users.
 - [x] **Compliance Note**: Accurately describes GDPR compliance and does NOT claim SOC2 compliance.

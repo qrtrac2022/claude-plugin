@@ -20,8 +20,13 @@ Dynamic QR codes have a permanent short link or scan URL encoded into the printe
 ### 1. Create a Dynamic QR Code
 - **Trigger**: "Create a QR code for https://example.com/spring-sale", "Generate a dynamic QR code"
 - **Tool**: `create_qr_code`
-  - Required: `targetUrl` (destination URL)
-  - Optional: `name` (e.g. "Spring Campaign 2026"), `folderId`, `expiresAt`
+- **Display Title (`annotations.title`)**: `Create a QR code`
+- **Annotations**: `readOnlyHint: false`, `destructiveHint: false`
+- **Parameters**:
+  - `targetUrl` (`string`, required): Destination URL (https://, http://, mailto:, tel:, sms:)
+  - `name` (`string`, optional): Name of campaign/code in QRTRAC dashboard (e.g. "Spring Campaign 2026")
+  - `folderId` (`string`, optional): Folder ID to place the code in
+  - `expiresAt` (`string` or `number`, optional): Expiration date/time
 - **Output**:
   - `id`: Unique QR code ID
   - `scanUrl`: The short scan link (e.g. `https://qrtrac.com/s/xyz` or custom domain)
@@ -34,7 +39,13 @@ Dynamic QR codes have a permanent short link or scan URL encoded into the printe
 ### 2. Update / Repoint Destination URL
 - **Trigger**: "Change the destination of my menu QR code to https://example.com/fall-menu", "Repoint my QR code"
 - **Tool**: `update_qr_code`
-  - Parameters: `qrId`, `targetUrl`, `name`, `expiresAt`
+- **Display Title (`annotations.title`)**: `Update a QR code`
+- **Annotations**: `readOnlyHint: false`, `destructiveHint: true`
+- **Parameters**:
+  - `qrId` (`string`, required): Target QR code ID
+  - `targetUrl` (`string`, optional): New destination URL
+  - `name` (`string`, optional): Updated campaign name
+  - `expiresAt` (`string` or `number`, optional): Updated expiration
 - **User Presentation**:
   - Confirm the update was applied.
   - Reassure the user that already-printed codes remain 100% active and will redirect to the new URL immediately with zero latency.
@@ -42,17 +53,25 @@ Dynamic QR codes have a permanent short link or scan URL encoded into the printe
 ### 3. List & Search QR Codes
 - **Trigger**: "Show all my QR codes", "Find my restaurant menu QR code"
 - **Tool**: `list_qr_codes`
-  - Parameters: `search` (filter by name), `folderId`, `page`, `limit`
+- **Display Title (`annotations.title`)**: `List QR codes`
+- **Annotations**: `readOnlyHint: true`, `destructiveHint: false`
+- **Parameters**:
+  - `search` (`string`, optional): Filter by name
+  - `folderId` (`string`, optional): Filter by folder
+  - `page` (`number`, optional), `limit` (`number`, optional)
 - **User Presentation**:
   - Format the list into a clean Markdown table with Columns: **Name**, **ID**, **Current Destination**, **Created Date**, and **Folder**.
 
 ### 4. Folder Organization
 - **Tools**:
-  - `list_folders`: Retrieve current folder hierarchy
-  - `create_folder`: Create a new folder (optional `parentId` for sub-folders)
-  - `move_qr_code_to_folder`: Move a QR code into a folder or back to root (`folderId: null`)
-  - `delete_folder`: Delete folder without deleting codes (codes are automatically moved up to parent/root)
+  - `list_folders` (Title: `List folders`, `readOnlyHint: true`, `destructiveHint: false`): Retrieve current folder hierarchy
+  - `create_folder` (Title: `Create a folder`, `readOnlyHint: false`, `destructiveHint: false`): Create a new folder (optional `parentId` for sub-folders)
+  - `rename_folder` (Title: `Rename a folder`, `readOnlyHint: false`, `destructiveHint: false`): Rename an existing folder
+  - `move_qr_code_to_folder` (Title: `Move a QR code to a folder`, `readOnlyHint: false`, `destructiveHint: false`): Move a QR code into a folder or back to root (`folderId: null`)
+  - `delete_folder` (Title: `Delete a folder`, `readOnlyHint: false`, `destructiveHint: true`): Delete folder without deleting codes (codes are automatically moved up to parent/root)
 
 ### 5. Deleting QR Codes
-- **Tool**: `delete_qr_code` or `bulk_delete_qr_codes`
-- **Warning**: Marked with `destructiveHint`. Deleting a code irreversibly breaks any printed material referencing its scan URL. Always ask for explicit user confirmation before executing a deletion unless the user clearly commanded immediate deletion of a specific ID.
+- **Tools**:
+  - `delete_qr_code` (Title: `Delete a QR code`, `readOnlyHint: false`, `destructiveHint: true`)
+  - `bulk_delete_qr_codes` (Title: `Delete several QR codes`, `readOnlyHint: false`, `destructiveHint: true`)
+- **Warning**: Marked with `destructiveHint: true`. Deleting a code irreversibly breaks any printed material referencing its scan URL. Always ask for explicit user confirmation before executing a deletion unless the user clearly commanded immediate deletion of a specific ID.

@@ -91,31 +91,34 @@ In accordance with Anthropic review guidelines, here is the transparent capabili
 
 ## 🛠️ Complete Tool Reference
 
-| Tool | Category | What it Does |
-| :--- | :--- | :--- |
-| `get_connection` | Account | Inspect which user and team the active connection is bound to. |
-| `list_qr_codes` | Codes | Paginated list of QR codes, filterable by name or folder. |
-| `get_qr_code` | Codes | Retrieve full record for a specific QR code. |
-| `create_qr_code` | Codes | Create a dynamic QR code; returns scan URL and printable PNG. |
-| `update_qr_code` | Codes | Update destination URL or name post-print without reprinting. |
-| `duplicate_qr_code` | Codes | Clone an existing QR code with a new ID and scan link. |
-| `delete_qr_code` | Codes | Irreversibly delete a QR code (`destructiveHint`). |
-| `bulk_delete_qr_codes` | Codes | Delete up to 50 codes at once within the connected team. |
-| `list_qr_templates` | Styling | List team styling presets and color palettes. |
-| `list_folders` | Folders | View flattened folder hierarchy with parent IDs. |
-| `create_folder` | Folders | Create a new organizational folder or sub-folder. |
-| `rename_folder` | Folders | Rename an existing folder. |
-| `delete_folder` | Folders | Delete folder (codes automatically move up to parent/root). |
-| `move_qr_code_to_folder` | Folders | Move a code into a folder or back to root. |
-| `create_link_list_qr_code` | Landing Pages | Build a mobile "List of Links" / Link-in-Bio page. |
-| `update_link_list_qr_code` | Landing Pages | Update links, avatar, title, or colors on a link-list page. |
-| `create_vcard_qr_code` | Business Cards | Generate scannable contact business card QR codes. |
-| `upload_image` | Media | Import image into team media bucket (validates bytes, 5 MB max). |
-| `get_qr_analytics` | Analytics | Scan totals and daily series for specific codes (up to 93 days). |
-| `get_scan_breakdown` | Analytics | Geographic (country/city) and device mix (OS, browser, device). |
-| `get_team_scan_summary` | Analytics | Leaderboard of top-performing QR codes by scan volume. |
-| `get_scan_report` | Analytics | Detailed date-range report for the connected team. |
-| `get_org_scan_report` | Analytics | Organization-wide scan report across all teams (Admins only). |
+In accordance with [Claude Connector Pre-Submission Review Criteria](https://claude.com/docs/connectors/building/review-criteria#provide-tool-annotations), every tool provides human-readable `title` / `annotations.title` annotations and explicit permission hints (`readOnlyHint` / `destructiveHint`):
+
+| Tool Identifier | Display Title (`annotations.title`) | Permission Hint | Category | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `get_connection` | Show the connected QRTRAC account | `readOnlyHint: true` | Account | Inspect which user and team the active connection is bound to. |
+| `list_qr_codes` | List QR codes | `readOnlyHint: true` | Codes | Paginated list of QR codes, filterable by name or folder. |
+| `get_qr_code` | Get a QR code | `readOnlyHint: true` | Codes | Retrieve full record for a specific QR code. |
+| `create_qr_code` | Create a QR code | Safe Write | Codes | Create a dynamic QR code; returns scan URL and printable PNG. |
+| `update_qr_code` | Update a QR code | `destructiveHint: true` | Codes | Update destination URL or name post-print without reprinting. |
+| `duplicate_qr_code` | Duplicate a QR code | Safe Write | Codes | Clone an existing QR code with a new ID and scan link. |
+| `delete_qr_code` | Delete a QR code | `destructiveHint: true` | Codes | Irreversibly delete a QR code. |
+| `bulk_delete_qr_codes` | Delete several QR codes | `destructiveHint: true` | Codes | Delete up to 50 codes at once within the connected team. |
+| `list_qr_templates` | List QR templates | `readOnlyHint: true` | Styling | List team styling presets and color palettes. |
+| `list_folders` | List folders | `readOnlyHint: true` | Folders | View flattened folder hierarchy with parent IDs. |
+| `create_folder` | Create a folder | Safe Write | Folders | Create a new organizational folder or sub-folder. |
+| `rename_folder` | Rename a folder | Safe Write | Folders | Rename an existing folder. |
+| `delete_folder` | Delete a folder | `destructiveHint: true` | Folders | Delete folder (codes automatically move up to parent/root). |
+| `move_qr_code_to_folder` | Move a QR code to a folder | Safe Write | Folders | Move a code into a folder or back to root. |
+| `create_link_list_qr_code` | Create a list-of-links QR code | Safe Write | Landing Pages | Build a mobile "List of Links" / Link-in-Bio page with buttons, custom theme colors, and layout. |
+| `update_link_list_qr_code` | Update a list-of-links QR code | `destructiveHint: true` | Landing Pages | Update links, avatar, title, or colors on a link-list page. |
+| `create_vcard_qr_code` | Create a Digital Business Card (vCard) QR code | Safe Write | Business Cards | Generate scannable contact business card QR codes. |
+| `update_vcard_qr_code` | Update a Digital Business Card (vCard) QR code | `destructiveHint: true` | Business Cards | Update contact info and details on a digital business card. |
+| `upload_image` | Upload an image | Safe Write | Media | Import image into team media bucket (validates bytes, 5 MB max). |
+| `get_qr_analytics` | Get scan analytics | `readOnlyHint: true` | Analytics | Scan totals and daily series for specific codes (up to 93 days). |
+| `get_scan_breakdown` | Break scans down by country and device | `readOnlyHint: true` | Analytics | Geographic (country/city) and device mix (OS, browser, device). |
+| `get_team_scan_summary` | Summarize scans across the team | `readOnlyHint: true` | Analytics | Leaderboard of top-performing QR codes by scan volume. |
+| `get_scan_report` | Scan report for a date range | `readOnlyHint: true` | Analytics | Detailed date-range report for the connected team. |
+| `get_org_scan_report` | Organisation-wide scan report for a date range | `readOnlyHint: true` | Analytics | Organization-wide scan report across all teams (Admins only). |
 
 ---
 
