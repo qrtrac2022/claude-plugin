@@ -80,7 +80,7 @@ Anthropic accepts submissions via the Developer Portal at [claude.ai/directory/m
 - **Primary Contact**: Your Name / `support@qrtrac.com`
 - **Categories**: `Productivity`, `Marketing`, `Developer Tools`
 - **Icon**: `assets/icon.png` (512x512 PNG)
-- **Documentation URL**: `https://qrtrac.com` (or `https://github.com/qrtrac2022/claude-plugin/blob/main/SETUP.md`)
+- **Documentation URL**: `https://apidocs.qrtrac.com/`
 - **Authentication**: OAuth 2.0 / 2.1 Dynamic Client Registration (`https://mcp.qrtrac.com/register`)
 - **API Ownership**: First-party API (`https://api.qrtrac.com`)
 - **Test Credentials**: Reviewer test account credentials on `qrtrac.com` with sample QR codes and analytics data.

@@ -137,7 +137,8 @@ This plugin communicates with remote services operated by QRTRAC:
 - No user passwords or unhashed tokens are retained.
 - Scan analytics logs never store or expose individual visitor IP addresses or precise GPS coordinates.
 
-### Legal & Privacy Links:
+### Documentation & Legal Links:
+- **API Documentation**: [https://apidocs.qrtrac.com/](https://apidocs.qrtrac.com/)
 - **Privacy Policy**: [https://qrtrac.com/privacy-policy/](https://qrtrac.com/privacy-policy/)
 - **Terms of Service**: [https://qrtrac.com/terms-conditions/](https://qrtrac.com/terms-conditions/)
 - **License**: [MIT License](./LICENSE)
