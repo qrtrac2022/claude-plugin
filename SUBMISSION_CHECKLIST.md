@@ -54,22 +54,36 @@ This checklist aligns with Anthropic's official submission requirements and the 
 
 ---
 
-## 5. Submission Portals
+## 5. Developer Portal Submission (claude.ai/directory/manage)
 
-Choose one of the official Anthropic submission routes:
-- **Claude.ai Portal**: [https://claude.ai/admin-settings/directory/submissions/plugins/new](https://claude.ai/admin-settings/directory/submissions/plugins/new) (Requires Team or Enterprise role).
-- **Console Portal**: [https://platform.claude.com/plugins/submit](https://platform.claude.com/plugins/submit) (Requires Developer, Admin, or Owner role).
+Anthropic accepts submissions via the Developer Portal at [claude.ai/directory/manage](https://claude.ai/directory/manage) under **Submit new**:
 
-### Submission Form Answers
-- **Plugin Name**: `qrtrac`
-- **Display Name**: `QRTrac QR Codes & Analytics`
-- **Category**: Productivity / Marketing
+### Option 1: Plugin Bundle
 - **Repository URL**: `https://github.com/qrtrac2022/claude-plugin`
-- **MCP Endpoint**: `https://mcp.qrtrac.com/mcp`
-- **Core Value Proposition**: Enables Claude users to create, manage, and edit dynamic QR codes, repoint destinations post-print without reprinting, build mobile Link-in-Bio pages, and query real-time scan analytics.
+- **Plugin Path**: `/` (or leave blank for repo root)
+- **Tracked Branch / Tag**: `main` or `v1.0.0`
+- **Package / Plugin Name** (`plugin.json`): `qrtrac` *(must be lowercase kebab-case for Claude.ai marketplace sync)*
+- **Display Name**: `QRTRAC` (or `QRTRAC - Dynamic QR Codes & Analytics`)
+- **Author / Legal Entity**: `QRTRAC LLC`
+- **One-Liner** (<200 chars): `Create dynamic QR codes, branded short links (Bitly alternative), mobile Link-in-Bio pages, and track real-time analytics with QRTRAC.`
 - **Support Contact**: `support@qrtrac.com`
-- **Privacy Policy**: `https://qrtrac.com/privacy-policy/`
-- **Terms of Service**: `https://qrtrac.com/terms-conditions/`
+- **Homepage / Website**: `https://qrtrac.com`
+- **Privacy Policy URL**: `https://qrtrac.com/privacy-policy/`
+- **Terms of Service URL**: `https://qrtrac.com/terms-conditions/`
+
+### Option 2: MCP Connector
+- **Connection Endpoint**: `https://mcp.qrtrac.com/mcp`
+- **Server / Display Name**: `QRTRAC`
+- **Listing Slug**: `qrtrac`
+- **Company / Legal Entity**: `QRTRAC LLC`
+- **Company Website**: `https://qrtrac.com`
+- **Primary Contact**: Your Name / `support@qrtrac.com`
+- **Categories**: `Productivity`, `Marketing`, `Developer Tools`
+- **Icon**: `assets/icon.png` (512x512 PNG)
+- **Documentation URL**: `https://qrtrac.com` (or `https://github.com/qrtrac2022/claude-plugin/blob/main/SETUP.md`)
+- **Authentication**: OAuth 2.0 / 2.1 Dynamic Client Registration (`https://mcp.qrtrac.com/register`)
+- **API Ownership**: First-party API (`https://api.qrtrac.com`)
+- **Test Credentials**: Reviewer test account credentials on `qrtrac.com` with sample QR codes and analytics data.
 
 ---
 
