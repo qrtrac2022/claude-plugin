@@ -1,20 +1,20 @@
-# QRTrac Claude Plugin & MCP Connector Setup
+# QRTRAC Claude Plugin & MCP Connector Setup
 
-This guide walks you through connecting Claude to your **QRTrac** workspace via the official remote MCP endpoint:
+This guide walks you through connecting Claude to your **QRTRAC** workspace via the official remote MCP endpoint:
 `https://mcp.qrtrac.com/mcp`
 
 ---
 
 ## 1. Prerequisites
 
-- A **QRTrac** account (Any plan, including the **7-day free trial** with no credit card required: [Sign Up](https://qrtrac.com/signup/)).
+- A **QRTRAC** account (Any plan, including the **7-day free trial** with no credit card required: [Sign Up](https://qrtrac.com/signup/)).
 - Access to Claude through one of the supported surfaces:
   - **Claude.ai / Claude for Work / Enterprise** (via Custom Connectors)
   - **Claude Code CLI** (via `claude plugin install`)
   - **Claude Desktop** (via MCP Server configuration)
 
 > [!NOTE]
-> QRTrac is GDPR and CCPA compliant. Unlimited scans are included on all plans with no per-scan fees or overages. (QRTrac is not SOC2 compliant).
+> QRTRAC is GDPR and CCPA compliant. Unlimited scans are included on all plans with no per-scan fees or overages. 
 > 501(c)(3) nonprofits receive 50% off all plans forever: [Nonprofit Verification](https://qrtrac.com/nonprofit-organizations/verify/).
 
 ---
@@ -29,12 +29,12 @@ This guide walks you through connecting Claude to your **QRTrac** workspace via 
    ```text
    https://mcp.qrtrac.com/mcp
    ```
-4. Click **Sign in with QRTrac**.
+4. Click **Sign in with QRTRAC**.
 5. Log in with your email/password or Google account, select the target Team, and approve the requested scopes:
    - `qr:read` — Read QR codes and folders
    - `qr:write` — Create, update, duplicate, and delete QR codes
    - `analytics:read` — Query scan reports, breakdown statistics, and team leaderboards
-6. Once connected, the QRTrac tools are active in your Claude chats and Claude Projects!
+6. Once connected, the QRTRAC tools are active in your Claude chats and Claude Projects!
 
 ---
 
@@ -89,7 +89,7 @@ Restart Claude Desktop. A hammer/tool icon will appear in the input composer.
 
 Ask Claude a harmless query to verify the connection:
 
-> *"Check my QRTrac connection status and show me what team I am connected to."*
+> *"Check my QRTRAC connection status and show me what team I am connected to."*
 
 Claude will invoke the `get_connection` tool:
 - Returns your connected email, organization ID, and team ID.
@@ -100,7 +100,7 @@ Claude will invoke the `get_connection` tool:
 ## 4. Disconnect & Uninstall
 
 To disconnect or revoke access:
-- **Claude.ai**: Go to **Settings** → **Connectors** → Find **QRTrac** → Click **Disconnect** / **Remove**.
+- **Claude.ai**: Go to **Settings** → **Connectors** → Find **QRTRAC** → Click **Disconnect** / **Remove**.
 - **Claude Code**: Run `claude plugin uninstall qrtrac` or `claude mcp remove qrtrac`.
 - **Claude Desktop**: Remove the `qrtrac` entry from `claude_desktop_config.json` and restart Claude Desktop.
-- **Revoke Tokens**: You can also revoke tokens at any time through the QRTrac dashboard or by calling the OAuth revocation endpoint at `https://mcp.qrtrac.com/revoke`.
+- **Revoke Tokens**: You can also revoke tokens at any time through the QRTRAC dashboard or by calling the OAuth revocation endpoint at `https://mcp.qrtrac.com/revoke`.
